@@ -1,6 +1,23 @@
 
 def add_Book():
-    print("Here we add a book")
+    book_name = input("Insert a book title->")
+    author_name = input("Insert the author name->")
+    # Importing csv libraries
+    import csv
+    #  deschidem .csv in write mode
+    with open('booksDB.csv',"w") as file:
+        # fieldnames ---- cap de tabel din dictionarul nostru , am creat capurile de tabel
+        writer = csv.DictWriter(file,fieldnames=[
+            "BookName" , "AuthorName" , "SharedWith" , "IsRead"
+                                                 ])
+        #  Introducem date in dictionarul nostru
+        writer.writerow({"BookName": book_name ,
+                         "AuthorName": author_name,
+                         })
+    print("Book was added successfully")
+
+
+
 
 def list_Books():
     print("Here we list the books")
