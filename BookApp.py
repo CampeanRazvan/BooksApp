@@ -5,14 +5,15 @@ def add_Book():
     # Importing csv libraries
     import csv
     #  deschidem .csv in write mode
-    with open('booksDB.csv',"w") as file:
+
+    with open('booksDB.csv',mode = "w") as file:
         # fieldnames ---- cap de tabel din dictionarul nostru , am creat capurile de tabel
         writer = csv.DictWriter(file,fieldnames=[
             "BookName" , "AuthorName" , "SharedWith" , "IsRead"
                                                  ])
         #  Introducem date in dictionarul nostru
-        writer.writerow({"BookName": book_name ,
-                         "AuthorName": author_name,
+        writer.writerow({"BookName": book_name.capitalize(),
+                         "AuthorName": author_name.title(),
                          })
     print("Book was added successfully")
 
@@ -20,6 +21,7 @@ def add_Book():
 
 
 def list_Books():
+
     print("Here we list the books")
 
 def update_Book():
@@ -28,7 +30,7 @@ def update_Book():
 def share_Book():
     print("Here we share a book")
 
-
+    
 
 #  Main menu for user
 print("Menu : ")
