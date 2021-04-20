@@ -7,22 +7,41 @@ def add_Book():
     #  deschidem .csv in write mode
 
     with open('booksDB.csv',mode = "w") as file:
-        # fieldnames ---- cap de tabel din dictionarul nostru , am creat capurile de tabel
+        # fieldnames ---- cap de tabel din dictionarul nostru , am creat capurile de t
+        # abel
         writer = csv.DictWriter(file,fieldnames=[
             "BookName" , "AuthorName" , "SharedWith" , "IsRead"
                                                  ])
         #  Introducem date in dictionarul nostru
-        writer.writerow({"BookName": book_name.capitalize(),
-                         "AuthorName": author_name.title(),
+        writer.writerow({"BookName": book_name,
+                         "AuthorName": author_name,
+                         "SharedWith": "None",
+                         "IsRead": False,
                          })
+
+
+
     print("Book was added successfully")
 
 
 
 
 def list_Books():
+    import csv
+    with open("booksDB.csv",mode = "r") as file:
+        # pasul 1 sa luam toate datele din baza de date
+        rows = csv.DictReader(file,fieldnames=("BookName", "AuthorName" , "SharedWith" ,"IsRead" ))
 
-    print("Here we list the books")
+        #  parcurgem rand cu rand
+        for row in rows:
+            # print(f"Book name is: {row.get('BookName')}")
+            # print(f"Author name is: {row.get('AuthorName')}")
+            # print(f"The book is shared with: {row.get('SharedWith')}")
+            # print(f"Book name is: {row.get('IsRead')},")
+                print(
+                    f"Book name is: {row.get('BookName')} auth name {row.get('AuthorName')} is shared"
+                    f" {row.get('ShareWith')} is read  {row.get('IsRead', False)}")
+
 
 def update_Book():
     print("Here we update a book")
