@@ -52,12 +52,13 @@ def share_Book():
     
 
 #  Main menu for user
-print("Menu : ")
-print("""1 : Add a book 
-2 : List the books
-3 : Update a book
-4 : Share a book
-""")
+menu_options = ["Add a book",
+                "List the books",
+                'Update a book',
+                "Share a book"]
+for option in range(len(menu_options)):
+    print((option +1) , menu_options[option])
+
 option = int(input("Select one optin -> "))
 if option == 1:
     add_Book()
