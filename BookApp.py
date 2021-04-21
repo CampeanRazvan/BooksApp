@@ -55,7 +55,9 @@ def share_Book():
 menu_options = ["Add a book",
                 "List the books",
                 'Update a book',
-                "Share a book"]
+                "Share a book"
+                ]
+print("Menu")
 for option in range(len(menu_options)):
     print((option +1) , menu_options[option])
 
