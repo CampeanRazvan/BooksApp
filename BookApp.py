@@ -6,7 +6,7 @@ def add_Book():
     import csv
     #  deschidem .csv in write mode
 
-    with open('booksDB.csv',mode = "w") as file:
+    with open('booksDB.csv',"a") as file:
         # fieldnames ---- cap de tabel din dictionarul nostru , am creat capurile de t
         # abel
         writer = csv.DictWriter(file,fieldnames=[
@@ -18,8 +18,6 @@ def add_Book():
                          "SharedWith": "None",
                          "IsRead": False,
                          })
-
-
 
     print("Book was added successfully")
 
@@ -44,7 +42,10 @@ def list_Books():
 
 
 def update_Book():
-    print("Here we update a book")
+
+
+
+
 
 def share_Book():
     print("Here we share a book")
